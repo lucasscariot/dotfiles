@@ -34,7 +34,6 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-
 ### ── OMZ Plugins (via zinit) ─────────────────────────────────
 
 # Git plugin
@@ -44,6 +43,13 @@ zinit ice pick"plugins/git/git.plugin.zsh" ; zinit light ohmyzsh/ohmyzsh
 # Extract plugin (e.g. `extract file.tar.gz`)
 zinit ice wait"5" silent
 zinit ice pick"plugins/extract/extract.plugin.zsh" ; zinit light ohmyzsh/ohmyzsh
+
+# History substring search
+zinit ice wait"5" silent
+zinit light zsh-users/zsh-history-substring-search
+
+bindkey '^[[A' history-substring-search-up
+bindkey '^[[B' history-substring-search-down
 
 # Common aliases
 zinit ice wait"5" silent
