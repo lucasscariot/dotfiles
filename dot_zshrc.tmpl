@@ -1,0 +1,97 @@
+### ── Environment ─────────────────────────────────────────────
+export ZSH="$HOME/.oh-my-zsh"
+export EDITOR="code"
+export PATH="$HOME/bin:/usr/local/bin:$PATH"
+export export OPEN_AI_API_KEY="{{ (keyring "openai_api_key" "lucas") }}"
+
+### ── Zsh Config ──────────────────────────────────────────────
+setopt AUTO_CD
+setopt HIST_IGNORE_ALL_DUPS
+setopt HIST_REDUCE_BLANKS
+setopt SHARE_HISTORY
+
+autoload -Uz compinit && compinit
+
+### ── Variables ───────────────────────────────────────────────
+export BAT_THEME="Nord"
+export GITHUB_USERNAME="lucasscariot"
+
+### ── Plugin Manager (Zinit) ──────────────────────────────────
+# Install Zinit if needed
+if [[ ! -f "$HOME/.zinit/bin/zinit.zsh" ]]; then
+  mkdir -p ~/.zinit && git clone https://github.com/zdharma-continuum/zinit ~/.zinit/bin
+fi
+source ~/.zinit/bin/zinit.zsh
+
+### ── Prompt ──────────────────────────────────────────────────
+# Powerlevel10k theme
+zinit light romkatv/powerlevel10k
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
+
+### ── OMZ Plugins (via zinit) ─────────────────────────────────
+
+# Git plugin
+zinit ice wait"5" silent
+zinit ice pick"plugins/git/git.plugin.zsh" ; zinit light ohmyzsh/ohmyzsh
+
+# Extract plugin (e.g. `extract file.tar.gz`)
+zinit ice wait"5" silent
+zinit ice pick"plugins/extract/extract.plugin.zsh" ; zinit light ohmyzsh/ohmyzsh
+
+# Common aliases
+zinit ice wait"5" silent
+zinit ice pick"plugins/common-aliases/common-aliases.plugin.zsh" ; zinit light ohmyzsh/ohmyzsh
+
+# Colored man pages
+zinit ice wait"5" silent
+zinit ice pick"plugins/colored-man-pages/colored-man-pages.plugin.zsh" ; zinit light ohmyzsh/ohmyzsh
+
+# Z command (we use zoxide instead below)
+zinit ice wait"5" silent
+zinit ice pick"plugins/z/z.plugin.zsh" ; zinit light ohmyzsh/ohmyzsh
+
+### ── Modern CLI Tools ────────────────────────────────────────
+
+# Autosuggestions
+zinit ice wait"5" silent
+zinit light zsh-users/zsh-autosuggestions
+
+# Syntax highlighting
+zinit ice wait"5" silent
+zinit light zsh-users/zsh-syntax-highlighting >/dev/null
+
+# fzf tab completion
+zinit ice wait"5" silent
+zinit light Aloxaf/fzf-tab
+
+### ── Aliases ─────────────────────────────────────────────────
+# Modern replacements
+alias cat='bat'
+alias find='fd'
+alias code='cursor'
+alias chat='chatgpt --interactive'
+
+### ── History & Search Enhancements ───────────────────────────
+
+HISTFILE=~/.zsh_history
+HISTSIZE=10000
+SAVEHIST=10000
+
+### ── Final Touch ─────────────────────────────────────────────
+# Enable completions
+zinit ice wait"5" silent
+autoload -Uz compinit && compinit
+
+export NVM_DIR="$HOME/.nvm"
+  [ -s "$HOMEBREW_PREFIX/opt/nvm/nvm.sh" ] && \. "$HOMEBREW_PREFIX/opt/nvm/nvm.sh" # This loads nvm
+  [ -s "$HOMEBREW_PREFIX/opt/nvm/etc/bash_completion.d/nvm" ] && \. "$HOMEBREW_PREFIX/opt/nvm/etc/bash_completion.d/nvm" # This loads nvm bash_completion
+
+# cd ~
