@@ -2,7 +2,6 @@
 export ZSH="$HOME/.oh-my-zsh"
 export EDITOR="code"
 export PATH="$HOME/bin:/usr/local/bin:$PATH"
-export export OPEN_AI_API_KEY="{{ (keyring "openai_api_key" "lucas") }}"
 
 ### ── Zsh Config ──────────────────────────────────────────────
 setopt AUTO_CD
@@ -93,5 +92,3 @@ autoload -Uz compinit && compinit
 export NVM_DIR="$HOME/.nvm"
   [ -s "$HOMEBREW_PREFIX/opt/nvm/nvm.sh" ] && \. "$HOMEBREW_PREFIX/opt/nvm/nvm.sh" # This loads nvm
   [ -s "$HOMEBREW_PREFIX/opt/nvm/etc/bash_completion.d/nvm" ] && \. "$HOMEBREW_PREFIX/opt/nvm/etc/bash_completion.d/nvm" # This loads nvm bash_completion
-
-# cd ~
