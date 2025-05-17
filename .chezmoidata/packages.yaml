@@ -1,0 +1,23 @@
+packages:
+  darwin:
+    brews:
+      - "todo-txt"
+      - "nvm"
+      - "bat"
+      - "git"
+      - "chatgpt-cli"
+      - "zinit"
+      - "z"
+      - "zoxide"
+      - "fzf"
+      - "ripgrep"
+      - "fd"
+    casks:
+      - "cursor"
+      - "firefox"
+      - "warp"
+      - "whatsapp"
+      - "telegram"
+      - "postman"
+      - "spotify"
+      - "postico"
