@@ -12,6 +12,7 @@ packages:
       - "fzf"
       - "ripgrep"
       - "fd"
+      - "bitwarden-cli"
     casks:
       - "cursor"
       - "firefox"
@@ -21,3 +22,4 @@ packages:
       - "postman"
       - "spotify"
       - "postico"
+      - "bitwarden"
