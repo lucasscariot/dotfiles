@@ -1,0 +1,14 @@
+[user]
+	name = Lucasscariot
+	email = lucas@scariot.fr
+[core]
+	editor = code
+[pull]
+	rebase = true
+[push]
+	autoSetupRemote = true
+[alias]
+	co = "commit -m"
+	ca = "commit --amend --no-edit"
+	cm = "commit -m"
+	ca = "commit --amend --no-edit"
