@@ -12,3 +12,6 @@
 	ca = "commit --amend --no-edit"
 	cm = "commit -m"
 	ca = "commit --amend --no-edit"
+	staash = stash --all
+[rerere]
+	enabled = true
