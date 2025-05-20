@@ -1,6 +1,7 @@
 [user]
 	name = Lucasscariot
 	email = lucas@scariot.fr
+	signingKey = /Users/lucasscariot/.ssh/id_ed25519.pub
 [core]
 	editor = code
 [pull]
@@ -12,10 +13,13 @@
 	ca = "commit --amend --no-edit"
 	cm = "commit -m"
 	ca = "commit --amend --no-edit"
-	staash = stash --all
+	staash = "stash --all"
+	ds = "diff main --stat"
 [rerere]
 	enabled = true
 [column]
 	ui = auto
-[branch]
-	sort = --committerdate
+[gpg]
+	format = ssh
+[maintenance]
+	repo = /Users/lucasscariot/goinfre/massive-dynamic
