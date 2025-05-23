@@ -8,6 +8,10 @@
 	rebase = true
 [push]
 	autoSetupRemote = true
+[init]
+	defaultBranch = main
+[diff]
+ 	algorithm = histogram
 [alias]
 	co = "commit -m"
 	ca = "commit --amend --no-edit"
@@ -17,9 +21,16 @@
 	ds = "diff main --stat"
 [rerere]
 	enabled = true
+	autoupdate = true
+[rebase]
+	autoSquash = true
+	autoStash = true
+	updateRefs = true
 [column]
 	ui = auto
 [gpg]
 	format = ssh
 [maintenance]
 	repo = /Users/lucasscariot/goinfre/massive-dynamic
+[fetch]
+	prune = true
