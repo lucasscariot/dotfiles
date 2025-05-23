@@ -93,6 +93,16 @@ alias tdel='todo.sh delete '
 alias tdo='todo.sh done '
 alias tlsa='todo.sh ls | grep -E "TODO|IN_PROGRESS|DONE"'
 
+# Monkey mode
+function npm() {
+  if [[ "$1" == "intsall" ]]; then
+    shift
+    command npm install "$@"
+  else
+    command npm "$@"
+  fi
+}
+
 ### ── History & Search Enhancements ───────────────────────────
 
 HISTFILE=~/.zsh_history
