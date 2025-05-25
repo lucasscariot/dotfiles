@@ -13,6 +13,7 @@ packages:
       - "ripgrep"
       - "fd"
       - "bitwarden-cli"
+      - "spotify_player"
     casks:
       - "cursor"
       - "firefox"
@@ -23,3 +24,5 @@ packages:
       - "spotify"
       - "postico"
       - "bitwarden"
+      - "chromium"
+      - "raycast"
