@@ -19,6 +19,9 @@
 	ca = "commit --amend --no-edit"
 	staash = "stash --all"
 	ds = "diff main --stat"
+	gone = !git for-each-ref --format='%(refname:short) %(upstream:track)' refs/heads | grep '\\[gone\\]'
+	clean-gone = !git for-each-ref --format='%(refname:short) %(upstream:track)' refs/heads | grep '\\[gone\\]' | awk '{print $1}' | xargs git branch -D
+	branchd = !git branch -vv --format=\"%(refname:short)|%(objectname:short)|[%(upstream:short)]|%(committerdate:relative)|%(subject)\" | column -t -s \"|\"
 [rerere]
 	enabled = true
 	autoupdate = true
